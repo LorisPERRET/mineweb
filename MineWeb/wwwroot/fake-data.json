@@ -1,0 +1,346 @@
+﻿[
+  {
+    "id": 1,
+    "displayname": "Kengen",
+    "name": "kengen",
+    "stacksize": 25,
+    "maxdurability": 121,
+    "enchantcategories": [
+      "armor"
+    ],
+    "repairwith": [],
+    "createddate": "2021-04-06",
+    "updateddate": null
+  },
+  {
+    "id": 2,
+    "displayname": "Duoflex",
+    "name": "duoflex",
+    "stacksize": 50,
+    "maxdurability": 118,
+    "enchantcategories": [
+      "armor_head",
+      "digger"
+    ],
+    "repairwith": [
+      "acacia_planks",
+      "jungle_planks"
+    ],
+    "createddate": "2019-10-23",
+    "updateddate": null
+  },
+  {
+    "id": 3,
+    "displayname": "Imant",
+    "name": "imant",
+    "stacksize": 63,
+    "maxdurability": 14,
+    "enchantcategories": [
+      "armor_chest",
+      "breakable",
+      "vanishable"
+    ],
+    "repairwith": [
+      "warped_planks"
+    ],
+    "createddate": "2015-02-23",
+    "updateddate": "2020-11-02"
+  },
+  {
+    "id": 4,
+    "displayname": "Comveyor",
+    "name": "comveyor",
+    "stacksize": 28,
+    "maxdurability": 120,
+    "enchantcategories": [
+      "digger"
+    ],
+    "repairwith": [
+      "acacia_planks",
+      "dark_oak_planks"
+    ],
+    "createddate": "2022-09-03",
+    "updateddate": "2017-04-15"
+  },
+  {
+    "id": 5,
+    "displayname": "Geostele",
+    "name": "geostele",
+    "stacksize": 46,
+    "maxdurability": 101,
+    "enchantcategories": [],
+    "repairwith": [
+      "warped_planks"
+    ],
+    "createddate": "2020-11-26",
+    "updateddate": "2014-10-01"
+  },
+  {
+    "id": 6,
+    "displayname": "Vortexaco",
+    "name": "vortexaco",
+    "stacksize": 55,
+    "maxdurability": 52,
+    "enchantcategories": [
+      "breakable",
+      "armor_head",
+      "breakable"
+    ],
+    "repairwith": [],
+    "createddate": "2020-10-18",
+    "updateddate": "2014-05-13"
+  },
+  {
+    "id": 7,
+    "displayname": "Conjurica",
+    "name": "conjurica",
+    "stacksize": 1,
+    "maxdurability": 73,
+    "enchantcategories": [
+      "vanishable",
+      "armor_head"
+    ],
+    "repairwith": [],
+    "createddate": "2016-07-17",
+    "updateddate": null
+  },
+  {
+    "id": 8,
+    "displayname": "Comstruct",
+    "name": "comstruct",
+    "stacksize": 26,
+    "maxdurability": 16,
+    "enchantcategories": [
+      "digger"
+    ],
+    "repairwith": [],
+    "createddate": "2020-03-04",
+    "updateddate": null
+  },
+  {
+    "id": 9,
+    "displayname": "Macronaut",
+    "name": "macronaut",
+    "stacksize": 62,
+    "maxdurability": 117,
+    "enchantcategories": [
+      "armor"
+    ],
+    "repairwith": [
+      "spruce_planks"
+    ],
+    "createddate": "2020-12-06",
+    "updateddate": null
+  },
+  {
+    "id": 10,
+    "displayname": "Poochies",
+    "name": "poochies",
+    "stacksize": 16,
+    "maxdurability": 40,
+    "enchantcategories": [
+      "digger"
+    ],
+    "repairwith": [
+      "jungle_planks",
+      "oak_planks"
+    ],
+    "createddate": "2016-08-04",
+    "updateddate": null
+  },
+  {
+    "id": 11,
+    "displayname": "Xerex",
+    "name": "xerex",
+    "stacksize": 27,
+    "maxdurability": 45,
+    "enchantcategories": [
+      "armor_chest",
+      "breakable",
+      "vanishable"
+    ],
+    "repairwith": [
+      "dark_oak_planks"
+    ],
+    "createddate": "2019-05-21",
+    "updateddate": null
+  },
+  {
+    "id": 12,
+    "displayname": "Trollery",
+    "name": "trollery",
+    "stacksize": 46,
+    "maxdurability": 109,
+    "enchantcategories": [
+      "digger",
+      "breakable",
+      "armor_head"
+    ],
+    "repairwith": [
+      "dark_oak_planks",
+      "jungle_planks"
+    ],
+    "createddate": "2018-09-23",
+    "updateddate": "2019-09-12"
+  },
+  {
+    "id": 13,
+    "displayname": "Steeltab",
+    "name": "steeltab",
+    "stacksize": 29,
+    "maxdurability": 117,
+    "enchantcategories": [],
+    "repairwith": [
+      "birch_planks"
+    ],
+    "createddate": "2021-02-01",
+    "updateddate": null
+  },
+  {
+    "id": 14,
+    "displayname": "Katakana",
+    "name": "katakana",
+    "stacksize": 57,
+    "maxdurability": 31,
+    "enchantcategories": [],
+    "repairwith": [],
+    "createddate": "2019-11-01",
+    "updateddate": null
+  },
+  {
+    "id": 15,
+    "displayname": "Ecrater",
+    "name": "ecrater",
+    "stacksize": 3,
+    "maxdurability": 111,
+    "enchantcategories": [],
+    "repairwith": [
+      "acacia_planks"
+    ],
+    "createddate": "2020-07-06",
+    "updateddate": "2014-03-19"
+  },
+  {
+    "id": 16,
+    "displayname": "Geekmosis",
+    "name": "geekmosis",
+    "stacksize": 24,
+    "maxdurability": 32,
+    "enchantcategories": [
+      "armor_chest",
+      "armor_chest"
+    ],
+    "repairwith": [
+      "spruce_planks",
+      "oak_planks"
+    ],
+    "createddate": "2019-10-01",
+    "updateddate": null
+  },
+  {
+    "id": 17,
+    "displayname": "Colaire",
+    "name": "colaire",
+    "stacksize": 44,
+    "maxdurability": 102,
+    "enchantcategories": [],
+    "repairwith": [
+      "acacia_planks",
+      "crimson_planks"
+    ],
+    "createddate": "2018-09-24",
+    "updateddate": null
+  },
+  {
+    "id": 18,
+    "displayname": "Viocular",
+    "name": "viocular",
+    "stacksize": 11,
+    "maxdurability": 87,
+    "enchantcategories": [
+      "digger"
+    ],
+    "repairwith": [
+      "warped_planks"
+    ],
+    "createddate": "2015-10-09",
+    "updateddate": null
+  },
+  {
+    "id": 19,
+    "displayname": "Tribalog",
+    "name": "tribalog",
+    "stacksize": 59,
+    "maxdurability": 64,
+    "enchantcategories": [
+      "armor"
+    ],
+    "repairwith": [],
+    "createddate": "2020-05-10",
+    "updateddate": "2022-09-20"
+  },
+  {
+    "id": 20,
+    "displayname": "Rooforia",
+    "name": "rooforia",
+    "stacksize": 25,
+    "maxdurability": 76,
+    "enchantcategories": [
+      "weapon"
+    ],
+    "repairwith": [
+      "dark_oak_planks",
+      "oak_planks"
+    ],
+    "createddate": "2016-09-14",
+    "updateddate": "2022-04-22"
+  },
+  {
+    "id": 21,
+    "displayname": "Applica",
+    "name": "applica",
+    "stacksize": 52,
+    "maxdurability": 59,
+    "enchantcategories": [
+      "vanishable",
+      "armor_chest"
+    ],
+    "repairwith": [
+      "birch_planks"
+    ],
+    "createddate": "2016-04-04",
+    "updateddate": "2018-04-01"
+  },
+  {
+    "id": 22,
+    "displayname": "Centregy",
+    "name": "centregy",
+    "stacksize": 32,
+    "maxdurability": 71,
+    "enchantcategories": [
+      "armor_chest"
+    ],
+    "repairwith": [
+      "dark_oak_planks"
+    ],
+    "createddate": "2020-04-22",
+    "updateddate": "2020-04-03"
+  },
+  {
+    "id": 23,
+    "displayname": "Zillatide",
+    "name": "zillatide",
+    "stacksize": 30,
+    "maxdurability": 95,
+    "enchantcategories": [
+      "armor",
+      "armor_chest",
+      "weapon"
+    ],
+    "repairwith": [
+      "spruce_planks"
+    ],
+    "createddate": "2016-01-09",
+    "updateddate": "2020-07-23"
+  }
+]
