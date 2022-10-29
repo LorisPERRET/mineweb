@@ -1,0 +1,371 @@
+﻿[
+  {
+    "id": 1,
+    "displayname": "Exoteric",
+    "name": "exoteric",
+    "stacksize": 20,
+    "maxdurability": 11,
+    "enchantcategories": [],
+    "repairwith": [],
+    "createddate": "2017-08-17",
+    "updateddate": null
+  },
+  {
+    "id": 2,
+    "displayname": "Opticom",
+    "name": "opticom",
+    "stacksize": 9,
+    "maxdurability": 123,
+    "enchantcategories": [
+      "breakable",
+      "vanishable"
+    ],
+    "repairwith": [
+      "spruce_planks"
+    ],
+    "createddate": "2019-05-18",
+    "updateddate": "2018-03-13"
+  },
+  {
+    "id": 3,
+    "displayname": "Renovize",
+    "name": "renovize",
+    "stacksize": 24,
+    "maxdurability": 56,
+    "enchantcategories": [
+      "weapon"
+    ],
+    "repairwith": [
+      "jungle_planks"
+    ],
+    "createddate": "2014-09-14",
+    "updateddate": "2022-05-30"
+  },
+  {
+    "id": 4,
+    "displayname": "Neurocell",
+    "name": "neurocell",
+    "stacksize": 6,
+    "maxdurability": 7,
+    "enchantcategories": [],
+    "repairwith": [
+      "crimson_planks",
+      "birch_planks"
+    ],
+    "createddate": "2016-05-12",
+    "updateddate": "2021-12-29"
+  },
+  {
+    "id": 5,
+    "displayname": "Digifad",
+    "name": "digifad",
+    "stacksize": 53,
+    "maxdurability": 94,
+    "enchantcategories": [],
+    "repairwith": [],
+    "createddate": "2022-05-16",
+    "updateddate": null
+  },
+  {
+    "id": 6,
+    "displayname": "Beadzza",
+    "name": "beadzza",
+    "stacksize": 59,
+    "maxdurability": 73,
+    "enchantcategories": [
+      "armor",
+      "vanishable",
+      "weapon"
+    ],
+    "repairwith": [
+      "crimson_planks",
+      "warped_planks"
+    ],
+    "createddate": "2020-06-30",
+    "updateddate": null
+  },
+  {
+    "id": 7,
+    "displayname": "Elpro",
+    "name": "elpro",
+    "stacksize": 57,
+    "maxdurability": 13,
+    "enchantcategories": [
+      "armor_head",
+      "digger"
+    ],
+    "repairwith": [
+      "oak_planks"
+    ],
+    "createddate": "2017-07-30",
+    "updateddate": "2016-07-29"
+  },
+  {
+    "id": 8,
+    "displayname": "Jumpstack",
+    "name": "jumpstack",
+    "stacksize": 7,
+    "maxdurability": 46,
+    "enchantcategories": [
+      "vanishable"
+    ],
+    "repairwith": [
+      "jungle_planks"
+    ],
+    "createddate": "2014-08-27",
+    "updateddate": null
+  },
+  {
+    "id": 9,
+    "displayname": "Geeketron",
+    "name": "geeketron",
+    "stacksize": 7,
+    "maxdurability": 108,
+    "enchantcategories": [
+      "digger",
+      "armor",
+      "digger"
+    ],
+    "repairwith": [],
+    "createddate": "2014-05-15",
+    "updateddate": "2014-11-24"
+  },
+  {
+    "id": 10,
+    "displayname": "Geoform",
+    "name": "geoform",
+    "stacksize": 62,
+    "maxdurability": 91,
+    "enchantcategories": [
+      "breakable"
+    ],
+    "repairwith": [
+      "spruce_planks",
+      "oak_planks"
+    ],
+    "createddate": "2022-08-23",
+    "updateddate": null
+  },
+  {
+    "id": 11,
+    "displayname": "Futuris",
+    "name": "futuris",
+    "stacksize": 50,
+    "maxdurability": 10,
+    "enchantcategories": [
+      "vanishable",
+      "vanishable"
+    ],
+    "repairwith": [],
+    "createddate": "2020-08-14",
+    "updateddate": null
+  },
+  {
+    "id": 12,
+    "displayname": "Accufarm",
+    "name": "accufarm",
+    "stacksize": 47,
+    "maxdurability": 58,
+    "enchantcategories": [
+      "digger",
+      "vanishable"
+    ],
+    "repairwith": [
+      "dark_oak_planks"
+    ],
+    "createddate": "2017-10-18",
+    "updateddate": "2020-10-07"
+  },
+  {
+    "id": 13,
+    "displayname": "Elentrix",
+    "name": "elentrix",
+    "stacksize": 1,
+    "maxdurability": 70,
+    "enchantcategories": [
+      "armor_head",
+      "armor",
+      "weapon"
+    ],
+    "repairwith": [],
+    "createddate": "2015-07-09",
+    "updateddate": "2022-04-13"
+  },
+  {
+    "id": 14,
+    "displayname": "Bisba",
+    "name": "bisba",
+    "stacksize": 3,
+    "maxdurability": 92,
+    "enchantcategories": [
+      "armor"
+    ],
+    "repairwith": [
+      "warped_planks"
+    ],
+    "createddate": "2019-12-14",
+    "updateddate": "2020-09-12"
+  },
+  {
+    "id": 15,
+    "displayname": "Quordate",
+    "name": "quordate",
+    "stacksize": 10,
+    "maxdurability": 6,
+    "enchantcategories": [
+      "vanishable",
+      "weapon"
+    ],
+    "repairwith": [
+      "dark_oak_planks",
+      "oak_planks"
+    ],
+    "createddate": "2021-02-07",
+    "updateddate": "2019-01-27"
+  },
+  {
+    "id": 16,
+    "displayname": "Imant",
+    "name": "imant",
+    "stacksize": 50,
+    "maxdurability": 108,
+    "enchantcategories": [
+      "digger",
+      "armor_chest",
+      "vanishable"
+    ],
+    "repairwith": [
+      "jungle_planks"
+    ],
+    "createddate": "2021-07-30",
+    "updateddate": null
+  },
+  {
+    "id": 17,
+    "displayname": "Tetak",
+    "name": "tetak",
+    "stacksize": 46,
+    "maxdurability": 45,
+    "enchantcategories": [
+      "digger",
+      "breakable"
+    ],
+    "repairwith": [
+      "warped_planks",
+      "jungle_planks"
+    ],
+    "createddate": "2015-11-02",
+    "updateddate": null
+  },
+  {
+    "id": 18,
+    "displayname": "Flum",
+    "name": "flum",
+    "stacksize": 24,
+    "maxdurability": 52,
+    "enchantcategories": [
+      "weapon",
+      "armor",
+      "armor_chest"
+    ],
+    "repairwith": [],
+    "createddate": "2014-08-06",
+    "updateddate": "2019-11-28"
+  },
+  {
+    "id": 19,
+    "displayname": "Signity",
+    "name": "signity",
+    "stacksize": 16,
+    "maxdurability": 16,
+    "enchantcategories": [
+      "armor",
+      "digger",
+      "armor_head"
+    ],
+    "repairwith": [
+      "warped_planks",
+      "crimson_planks"
+    ],
+    "createddate": "2019-12-23",
+    "updateddate": null
+  },
+  {
+    "id": 20,
+    "displayname": "Bluegrain",
+    "name": "bluegrain",
+    "stacksize": 62,
+    "maxdurability": 100,
+    "enchantcategories": [
+      "armor_chest"
+    ],
+    "repairwith": [
+      "jungle_planks"
+    ],
+    "createddate": "2019-11-30",
+    "updateddate": "2018-06-21"
+  },
+  {
+    "id": 21,
+    "displayname": "Exostream",
+    "name": "exostream",
+    "stacksize": 48,
+    "maxdurability": 15,
+    "enchantcategories": [
+      "weapon",
+      "weapon",
+      "armor_head"
+    ],
+    "repairwith": [
+      "spruce_planks"
+    ],
+    "createddate": "2022-02-09",
+    "updateddate": "2014-09-09"
+  },
+  {
+    "id": 22,
+    "displayname": "Gleamink",
+    "name": "gleamink",
+    "stacksize": 4,
+    "maxdurability": 41,
+    "enchantcategories": [
+      "vanishable",
+      "armor_head",
+      "breakable"
+    ],
+    "repairwith": [
+      "dark_oak_planks",
+      "jungle_planks"
+    ],
+    "createddate": "2017-02-27",
+    "updateddate": null
+  },
+  {
+    "id": 23,
+    "displayname": "Utarian",
+    "name": "utarian",
+    "stacksize": 47,
+    "maxdurability": 59,
+    "enchantcategories": [],
+    "repairwith": [
+      "oak_planks",
+      "spruce_planks"
+    ],
+    "createddate": "2022-06-23",
+    "updateddate": null
+  },
+  {
+    "id": 24,
+    "displayname": "Uberlux",
+    "name": "uberlux",
+    "stacksize": 61,
+    "maxdurability": 78,
+    "enchantcategories": [
+      "weapon",
+      "breakable"
+    ],
+    "repairwith": [],
+    "createddate": "2015-07-23",
+    "updateddate": "2022-06-09"
+  }
+]
