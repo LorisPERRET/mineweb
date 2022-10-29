@@ -1,3 +1,4 @@
+using Blazored.LocalStorage;
 using Blazorise;
 using Blazorise.Bootstrap;
 using Blazorise.Icons.FontAwesome;
@@ -12,12 +13,17 @@ builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
 
+// Serialisation
 builder.Services.AddHttpClient();
 
+// Grille
 builder.Services
    .AddBlazorise()
    .AddBootstrapProviders()
    .AddFontAwesomeIcons();
+
+// LocalStorage
+builder.Services.AddBlazoredLocalStorage();
 
 var app = builder.Build();
 
