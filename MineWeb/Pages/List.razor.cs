@@ -3,6 +3,7 @@ using Blazored.Modal;
 using Blazored.Modal.Services;
 using Blazorise.DataGrid;
 using Microsoft.AspNetCore.Components;
+using Microsoft.Extensions.Localization;
 using MineWeb.Modals;
 using MineWeb.Model;
 using MineWeb.Services;
@@ -11,6 +12,9 @@ namespace MineWeb.Pages
 {
     public partial class List
     {
+        [Inject]
+        public IStringLocalizer<List> Localizer { get; set; }
+
         private List<Item> items;
 
         private int totalItem;
