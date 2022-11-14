@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using MineWeb.Data;
 using MineWeb.Services;
+using Blazored.Modal;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +15,7 @@ builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
 builder.Services.AddScoped<IDataService, DataLocalService>();
+builder.Services.AddBlazoredModal();
 
 // Serialisation
 builder.Services.AddHttpClient();

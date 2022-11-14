@@ -138,5 +138,29 @@ namespace MineWeb.Services
             // Save the data
             await _localStorage.SetItemAsync("data", currentData);
         }
+
+        public async Task Delete(int id)
+        {
+            // Get the current data
+            var currentData = await _localStorage.GetItemAsync<List<Item>>("data");
+
+            // Get the item int the list
+            var item = currentData.FirstOrDefault(w => w.Id == id);
+
+            // Delete item in
+            currentData.Remove(item);
+
+            // Delete the image
+            var imagePathInfo = new DirectoryInfo($"{_webHostEnvironment.WebRootPath}/images");
+            var fileName = new FileInfo($"{imagePathInfo}/{item.Name}.png");
+
+            if (fileName.Exists)
+            {
+                File.Delete(fileName.FullName);
+            }
+
+            // Save the data
+            await _localStorage.SetItemAsync("data", currentData);
+        }
     }
 }
