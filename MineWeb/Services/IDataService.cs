@@ -13,5 +13,7 @@ namespace MineWeb.Services
         Task<Item> GetById(int id);
 
         Task Update(int id, ItemModel model);
+
+        Task Delete(int id);
     }
 }

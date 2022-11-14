@@ -1,4 +1,5 @@
 using Blazored.LocalStorage;
+using Blazored.Modal;
 using Blazorise;
 using Blazorise.Bootstrap;
 using Blazorise.Icons.FontAwesome;
@@ -20,6 +21,7 @@ builder.Services
    .AddFontAwesomeIcons();
 builder.Services.AddBlazoredLocalStorage();
 builder.Services.AddScoped<IDataService, DataLocalService>();
+builder.Services.AddBlazoredModal();
 
 var app = builder.Build();
 
