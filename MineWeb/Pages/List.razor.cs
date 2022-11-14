@@ -2,6 +2,7 @@
 using Blazored.Modal.Services;
 using Blazorise.DataGrid;
 using Microsoft.AspNetCore.Components;
+using Microsoft.Extensions.Localization;
 using MineWeb.Modals;
 using MineWeb.Models;
 using MineWeb.Services;
@@ -25,6 +26,9 @@ namespace MineWeb.Pages
 
         [CascadingParameter]
         public IModalService Modal { get; set; }
+
+        [Inject]
+        public IStringLocalizer<List> Localizer { get; set; }
 
         private async Task OnReadData(DataGridReadDataEventArgs<Item> e)
         {
