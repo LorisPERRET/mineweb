@@ -5,6 +5,7 @@ using Blazorise.Icons.FontAwesome;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using MineWeb.Data;
+using MineWeb.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +19,7 @@ builder.Services
    .AddBootstrapProviders()
    .AddFontAwesomeIcons();
 builder.Services.AddBlazoredLocalStorage();
+builder.Services.AddScoped<IDataService, DataLocalService>();
 
 var app = builder.Build();
 
