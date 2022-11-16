@@ -1,4 +1,5 @@
-﻿using MineWeb.Model;
+﻿using MineWeb.Components;
+using MineWeb.Model;
 
 namespace MineWeb.Services
 {
@@ -15,5 +16,7 @@ namespace MineWeb.Services
         Task Update(int id, ItemModel model);
 
         Task Delete(int id);
+
+        Task<List<CraftingRecipe>> GetRecipes();
     }
 }

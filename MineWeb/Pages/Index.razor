@@ -1,4 +1,6 @@
 ﻿@using System.Globalization
+@using MineWeb.Components
+@using MineWeb.Model
 @page "/"
 
 <PageTitle>Index</PageTitle>
@@ -12,3 +14,7 @@
 Welcome to your new app.
 
 <SurveyPrompt Title="How is Blazor working for you?" />
+
+<div>
+    <Crafting Items="Items" Recipes="Recipes" />
+</div>

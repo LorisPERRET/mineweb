@@ -14,6 +14,7 @@ using System.Globalization;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddHttpClient();
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
@@ -23,7 +24,8 @@ builder.Services
    .AddBootstrapProviders()
    .AddFontAwesomeIcons();
 builder.Services.AddBlazoredLocalStorage();
-builder.Services.AddScoped<IDataService, DataLocalService>();
+//builder.Services.AddScoped<IDataService, DataLocalService>();
+builder.Services.AddScoped<IDataService, DataApiService>();
 builder.Services.AddBlazoredModal();
 
 // Add the controller of the app

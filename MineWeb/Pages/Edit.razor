@@ -52,7 +52,7 @@
             }
         </div>
     </p>
-    <p>
+    @*<p>
         <label>
             Current Item image:
             @if (File.Exists($"{WebHostEnvironment.WebRootPath}/images/{itemModel.Name}.png"))
@@ -63,6 +63,12 @@
             {
                 <img src="images/default.png" class="img-thumbnail" title="@itemModel.DisplayName" alt="@itemModel.DisplayName" style="max-width: 150px" />
             }
+        </label>
+    </p>*@
+    <p>
+        <label>
+            Current Item image:
+            <img src="data:image/png;base64, @(itemModel.ImageBase64)" class="img-thumbnail" title="@itemModel.DisplayName" alt="@itemModel.DisplayName" style="min-width: 50px; max-width: 150px" />
         </label>
     </p>
     <p>
