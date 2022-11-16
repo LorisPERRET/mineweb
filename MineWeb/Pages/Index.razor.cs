@@ -18,8 +18,20 @@ namespace MineWeb.Pages
         {
             await base.OnInitializedAsync();
 
+        }
+
+        protected override async Task OnAfterRenderAsync(bool firstRender)
+        {
+            base.OnAfterRenderAsync(firstRender);
+
+            if (!firstRender)
+            {
+                return;
+            }
+
             Items = await DataService.List(0, await DataService.Count());
             Recipes = await DataService.GetRecipes();
+
         }
     }
 }
