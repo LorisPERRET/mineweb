@@ -20,8 +20,17 @@ namespace MineWeb.Components
         public ObservableCollection<CraftingAction> Actions { get; set; }
         public Item CurrentDragItem { get; set; }
 
+        private List<Item> _items;
         [Parameter]
-        public List<Item> Items { get; set; }
+        public List<Item> Items { get
+            {
+                return _items;
+            }
+            set
+            {
+                _items = value;
+            }
+        }
 
         public List<Item> RecipeItems { get; set; }
 
