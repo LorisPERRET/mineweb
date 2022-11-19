@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "displayname": "Xylar",
+    "name": "xylar",
+    "stacksize": 30
+  },
+  {
+    "id": 2,
+    "displayname": "Ohmnet",
+    "name": "ohmnet",
+    "stacksize": 9
+  },
+  {
+    "id": 3,
+    "displayname": "Rodeomad",
+    "name": "rodeomad",
+    "stacksize": 49
+  },
+  {
+    "id": 4,
+    "displayname": "Manglo",
+    "name": "manglo",
+    "stacksize": 43
+  },
+  {
+    "id": 5,
+    "displayname": "Fossiel",
+    "name": "fossiel",
+    "stacksize": 6
+  },
+  {
+    "id": 6,
+    "displayname": "Deepends",
+    "name": "deepends",
+    "stacksize": 62
+  },
+  {
+    "id": 7,
+    "displayname": "Accufarm",
+    "name": "accufarm",
+    "stacksize": 6
+  },
+  {
+    "id": 8,
+    "displayname": "Comtours",
+    "name": "comtours",
+    "stacksize": 64
+  },
+  {
+    "id": 9,
+    "displayname": "Solgan",
+    "name": "solgan",
+    "stacksize": 59
+  },
+  {
+    "id": 10,
+    "displayname": "Velity",
+    "name": "velity",
+    "stacksize": 13
+  },
+  {
+    "id": 11,
+    "displayname": "Candecor",
+    "name": "candecor",
+    "stacksize": 14
+  },
+  {
+    "id": 12,
+    "displayname": "Krog",
+    "name": "krog",
+    "stacksize": 52
+  },
+  {
+    "id": 13,
+    "displayname": "Peticular",
+    "name": "peticular",
+    "stacksize": 1
+  },
+  {
+    "id": 14,
+    "displayname": "Extrawear",
+    "name": "extrawear",
+    "stacksize": 29
+  },
+  {
+    "id": 15,
+    "displayname": "Farmage",
+    "name": "farmage",
+    "stacksize": 9
+  }
+]
