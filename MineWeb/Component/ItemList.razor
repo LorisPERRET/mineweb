@@ -1,0 +1,32 @@
+﻿@using MineWeb.Model
+<h3>ItemList</h3>
+
+<div class="input-group rounded">
+    <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+    <span class="input-group-text border-0" id="search-addon">
+        <i class="fas fa-search"></i>
+    </span>
+</div>
+
+<DataGrid TItem="Item"
+          Data="@items"
+          ReadData="@OnReadData"
+          TotalItems="@totalItem"
+          PageSize="10"
+          ShowPager
+          Responsive>
+    <DataGridColumn TItem="Item" Field="@nameof(Item.Id)" VerticalAlignment="Blazorise.VerticalAlignment.Middle" />
+    <DataGridColumn TItem="Item" Field="@nameof(Item.Id)" VerticalAlignment="Blazorise.VerticalAlignment.Middle">
+        <DisplayTemplate>
+            @if (File.Exists($"{WebHostEnvironment.WebRootPath}/images/{context.Name}.png"))
+            {
+                <img src="images/@(context.Name).png" class="img-thumbnail" title="@context.DisplayName" alt="@context.DisplayName" style="max-width: 50px" />
+            }
+            else
+            {
+                <img src="images/default.png" class="img-thumbnail" title="@context.DisplayName" alt="@context.DisplayName" style="max-width: 50px" />
+            }
+        </DisplayTemplate>
+    </DataGridColumn>
+    <DataGridColumn TItem="Item" Field="@nameof(Item.DisplayName)" VerticalAlignment="Blazorise.VerticalAlignment.Middle"/>
+</DataGrid>
