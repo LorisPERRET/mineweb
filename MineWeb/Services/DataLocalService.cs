@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using Blazored.LocalStorage;
+using Microsoft.AspNetCore.Components;
 using MineWeb.Model;
 
 namespace MineWeb.Services
@@ -20,41 +21,6 @@ namespace MineWeb.Services
             _http = http;
             _webHostEnvironment = webHostEnvironment;
             _navigationManager = navigationManager;
-        }
-
-        public async Task Add(ItemModel model)
-        {
-            // Get the current data
-            var currentData = await _localStorage.GetItemAsync<List<Item>>("data");
-
-            // Simulate the Id
-            model.Id = currentData.Max(s => s.Id) + 1;
-
-            // Add the item to the current data
-            currentData.Add(new Item
-            {
-                Id = model.Id,
-                DisplayName = model.DisplayName,
-                Name = model.Name
-            });
-
-            // Save the image
-            var imagePathInfo = new DirectoryInfo($"{_webHostEnvironment.WebRootPath}/images");
-
-            // Check if the folder "images" exist
-            if (!imagePathInfo.Exists)
-            {
-                imagePathInfo.Create();
-            }
-
-            // Determine the image name
-            var fileName = new FileInfo($"{imagePathInfo}/{model.Name}.png");
-
-            // Write the file content
-            await File.WriteAllBytesAsync(fileName.FullName, model.ImageContent);
-
-            // Save the data
-            await _localStorage.SetItemAsync("data", currentData);
         }
 
         public async Task<int> Count()
@@ -87,6 +53,23 @@ namespace MineWeb.Services
             }
 
             return (await _localStorage.GetItemAsync<Item[]>("data")).Skip((currentPage - 1) * pageSize).Take(pageSize).ToList();
+        }
+
+        public async Task<Item> GetById(int id)
+        {
+            // Get the current data
+            var currentData = await _localStorage.GetItemAsync<List<Item>>("data");
+
+            // Get the item int the list
+            var item = currentData.FirstOrDefault(w => w.Id == id);
+
+            // Check if item exist
+            if (item == null)
+            {
+                throw new Exception($"Unable to found the item with ID: {id}");
+            }
+
+            return item;
         }
     }
 }
