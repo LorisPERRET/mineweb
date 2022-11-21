@@ -2,7 +2,7 @@
 
 namespace MineWeb.Component
 {
-    public partial class Item
+    public partial class ItemComponent
     {
 
         [Parameter]

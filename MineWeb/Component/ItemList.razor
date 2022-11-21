@@ -1,8 +1,7 @@
 ﻿@using MineWeb.Model
-<h3>ItemList</h3>
 
 <div class="input-group rounded">
-    <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+    <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" onkeydown="search(event)"/>
     <span class="input-group-text border-0" id="search-addon">
         <i class="fas fa-search"></i>
     </span>
@@ -12,7 +11,7 @@
           Data="@items"
           ReadData="@OnReadData"
           TotalItems="@totalItem"
-          PageSize="10"
+          PageSize="7"
           ShowPager
           Responsive>
     <DataGridColumn TItem="Item" Field="@nameof(Item.Id)" VerticalAlignment="Blazorise.VerticalAlignment.Middle" />
