@@ -4,45 +4,47 @@ namespace MineWeb.Component
 {
     public partial class Item
     {
-        public partial class CraftingItem
+
+        [Parameter]
+        public int Index { get; set; }
+
+        [Parameter]
+        public MineWeb.Model.Item CurrentItem { get; set; }
+
+        [Parameter]
+        public bool NoDrop { get; set; }
+
+        [CascadingParameter]
+        public MyInventory Parent { get; set; }
+
+        internal void OnDragEnter()
         {
-            [Parameter]
-            public int Index { get; set; }
-
-            [Parameter]
-            public Item Item { get; set; }
-
-            [Parameter]
-            public bool NoDrop { get; set; }
-
-            internal void OnDragEnter()
+            if (NoDrop)
             {
-                if (NoDrop)
-                {
-                    return;
-                }
-            }
-
-            internal void OnDragLeave()
-            {
-                if (NoDrop)
-                {
-                    return;
-                }
-            }
-
-            internal void OnDrop()
-            {
-                if (NoDrop)
-                {
-                    return;
-                }
-            }
-
-            private void OnDragStart()
-            {
-                Parent.CurrentDragItem = this.Item;
+                return;
             }
         }
+
+        internal void OnDragLeave()
+        {
+            if (NoDrop)
+            {
+                return;
+            }
+        }
+
+        internal void OnDrop()
+        {
+            if (NoDrop)
+            {
+                return;
+            }
+        }
+
+        private void OnDragStart()
+        {
+            Parent.CurrentDragItem = this.CurrentItem;
+        }
+
     }
 }

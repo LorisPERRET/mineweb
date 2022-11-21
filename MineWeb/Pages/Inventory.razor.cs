@@ -7,6 +7,8 @@ namespace MineWeb.Pages
     {
         private Item[] items;
 
+        private Dictionary<int,Item> Items = new Dictionary<int, Item>();
+
         [Inject]
         public HttpClient Http { get; set; }
 

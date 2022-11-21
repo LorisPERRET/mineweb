@@ -1,2 +1,23 @@
-﻿<h3>My Inventory</h3>
+﻿<CascadingValue Value="@this">
 
+    <h3>My Inventory</h3>
+
+    @*<div class="css-Inventory">
+        <Item Index="0"/>
+        <Item Index="1"/>
+        <Item Index="2" />
+        <Item Index="3" />
+        <Item Index="4" />
+        <Item Index="5" />
+    </div>*@
+
+    <div class="css-MyInventory">
+
+        @for (int i = 0; i < 27; i++)
+        {
+            <Item Index=i />
+        }
+
+    </div>
+
+</CascadingValue>
