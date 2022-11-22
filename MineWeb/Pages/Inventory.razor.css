@@ -6,7 +6,24 @@
 
 .inventory, .list {
     width: 45%;
+    height: 100%;
     background-color: #ECECEC;
     border-radius: 10px;
     padding: 20px;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 640.98px) {
+    .all {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+
+    .inventory, .list {
+        width: 100%;
+        background-color: #ECECEC;
+        border-radius: 10px;
+        padding: 20px;
+    }
 }
