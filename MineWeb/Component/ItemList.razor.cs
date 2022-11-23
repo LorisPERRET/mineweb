@@ -12,6 +12,8 @@ namespace MineWeb.Component
 
         private int totalItem;
 
+        public Item CurrentDragItem { get; set; }
+
         [Inject]
         public IDataService DataService { get; set; }
 
