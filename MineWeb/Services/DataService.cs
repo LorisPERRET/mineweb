@@ -1,6 +1,4 @@
-﻿using Blazored.LocalStorage;
-using Microsoft.AspNetCore.Components;
-using MineWeb.Model;
+﻿using MineWeb.Model;
 
 namespace MineWeb.Services
 {
