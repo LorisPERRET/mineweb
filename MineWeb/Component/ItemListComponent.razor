@@ -5,6 +5,7 @@
      @ondrop="@OnDrop"
      @ondragenter="@OnDragEnter"
      @ondragleave="@OnDragLeave">
+
     @if (CurrentItem != null)
     {
         <div class="id">
@@ -13,11 +14,11 @@
         <div class="image">
             @if (!string.IsNullOrWhiteSpace(CurrentItem.ImageBase64))
         {
-                <img src="data:image/png;base64, @(CurrentItem.ImageBase64)" class="img-thumbnail" title="@CurrentItem.DisplayName" alt="@CurrentItem.DisplayName" style="min-width: 50px;" />
+                <img src="data:image/png;base64, @(CurrentItem.ImageBase64)" class="img-thumbnail" title="@CurrentItem.DisplayName" alt="@CurrentItem.DisplayName" style="height: 50px;" />
         }
         else
         {
-                <img src="images/default.png" class="img-thumbnail" title="@CurrentItem.DisplayName" alt="@CurrentItem.DisplayName" style="max-width: 50px" />
+                <img src="images/default.png" class="img-thumbnail" title="@CurrentItem.DisplayName" alt="@CurrentItem.DisplayName" style="height: 50px;" />
         }
         </div>
         <div class="name">
