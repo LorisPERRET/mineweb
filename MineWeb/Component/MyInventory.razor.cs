@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 
+
 namespace MineWeb.Component
 {
     public partial class MyInventory

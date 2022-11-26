@@ -6,8 +6,10 @@
      @ondragenter="@OnDragEnter"
      @ondragleave="@OnDragLeave">
 
-    @if (CurrentItem != null)
+    @if (Item != null)
     {
-        @CurrentItem.DisplayName
+        @Item.DisplayName
+        @Index
     }
+
 </div>

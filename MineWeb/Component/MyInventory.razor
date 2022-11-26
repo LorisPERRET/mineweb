@@ -13,7 +13,11 @@
 
         @for (int i = 0; i < 27; i++)
         {
-            <ItemComponent Index=i />
+            @if (Items.ContainsKey(i)) {
+                <ItemComponent Index=i Item=Items[i] Quantity=1/>
+            } else {
+                <ItemComponent Index=i />
+            }
         }
 
     </div>

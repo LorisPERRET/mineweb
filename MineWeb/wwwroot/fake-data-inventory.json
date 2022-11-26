@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "displayname": "Xylar",
+    "name": "xylar",
+    "stacksize": 30
+  },
+  {
+    "id": 15,
+    "displayname": "Farmage",
+    "name": "farmage",
+    "stacksize": 9
+  }
+]
