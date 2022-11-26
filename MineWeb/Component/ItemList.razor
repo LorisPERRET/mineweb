@@ -3,7 +3,7 @@
 <CascadingValue Value="@this">
     <div class="top">
         <div class="input-group rounded">
-            <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" onkeydown="search(event)" />
+            <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" @onkeypress="@Search" @oninput="@((e) => { valueInputSearch=(string)e.Value;})" />
             <span class="input-group-text border-0" id="search-addon">
                 <i class="fas fa-search"></i>
             </span>
@@ -35,7 +35,7 @@
               Data="@items"
               ReadData="@OnReadData"
               TotalItems="@totalItem"
-              PageSize="7"
+              PageSize="6"
               ShowPager
               Responsive>
     </DataGrid>
