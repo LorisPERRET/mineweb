@@ -40,10 +40,18 @@ namespace MineWeb.Component
         {
             if (e.Key.Equals("Enter"))
             {
-                Console.WriteLine(valueInputSearch);
+                items = await DataService.Search(valueInputSearch.ToLower()));
+                /*foreach (var item in items)
+                {
+                    Console.WriteLine(item.Name);
+                    if (item.Name.Contains(valueInputSearch.ToLower()))
+                    {
+                        Console.WriteLine(item.Name);
+                    }
+                }*/
+                /*items = items.Where(value => items.Any(valueInputSearch => value.Name.Contains(valueInputSearch)));*/
             }
-            /*items.Clear();
-            items = await DataService.Search);*/
+            
         }
     }
 }
