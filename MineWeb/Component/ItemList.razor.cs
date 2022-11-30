@@ -9,6 +9,7 @@ namespace MineWeb.Component
     public partial class ItemList
     {
         private List<Item> items;
+        private List<Item> itemsSearch;
 
         private int totalItem;
 
@@ -40,6 +41,8 @@ namespace MineWeb.Component
         {
             if (e.Key.Equals("Enter"))
             {
+                itemsSearch = await DataService.List(1, totalItem);
+                Console.WriteLine(itemsSearch);
                 items = await DataService.Search(valueInputSearch.ToLower()));
                 /*foreach (var item in items)
                 {
