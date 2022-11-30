@@ -13,10 +13,13 @@
 
         @for (int i = 0; i < 27; i++)
         {
-            @if (Items.ContainsKey(i)) {
-                <ItemComponent Index=i Item=Items[i] Quantity=1/>
-            } else {
-                <ItemComponent Index=i />
+            @if (Items.ContainsKey(i))
+            {
+                <ItemComponent Index=i Item=Items[i] />
+            }
+            else 
+            {
+                <ItemComposant Index=i Item=null />
             }
         }
 

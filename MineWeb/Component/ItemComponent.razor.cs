@@ -11,13 +11,10 @@ namespace MineWeb.Component
         public int Index { get; set; }
 
         [Parameter]
-        public Item Item { get; set; }
+        public ItemForInventory Item { get; set; }
 
         [Parameter]
         public bool NoDrop { get; set; }
-
-        [Parameter]
-        public int  Quantity { get; set; }
 
         [CascadingParameter]
         public MyInventory Parent { get; set; }
@@ -36,8 +33,6 @@ namespace MineWeb.Component
             {
                 return;
             }
-
-            Parent.Items[Index] = new Item();
         }
 
         internal void OnDrop()
@@ -47,33 +42,31 @@ namespace MineWeb.Component
                 return;
             }
 
-            if (this.Quantity == 0)
+            if (this.Item == null)
             {
-                Item = Parent.CurrentDragItem;
-                Parent.Items[Index] = Parent.CurrentDragItem;
+                this.Item = Parent.CurrentDragItem;
             }
-            else if (this.Item == Parent.CurrentDragItem)
+            else if (this.Item.Item == Parent.CurrentDragItem.Item)
             {
-                if (this.Quantity < this.Item.StackSize)
+                if (this.Item.Quantity < this.Item.Item.StackSize)
                 {
-                    this.Quantity += 1;
+                    this.Item.Quantity = this.Item.Quantity + 1;
                 }
             }
         }
 
         private void OnDragStart()
         {
-            if (this.Quantity > 0)
+            if (this.Item != null)
             {
-                Parent.CurrentDragItem = this.Item;
-                if (this.Quantity == 1)
+                Parent.CurrentDragItem = new ItemForInventory(this.Item.Item, 1);
+                if (this.Item.Quantity > 1)
                 {
-                    this.Item = new Item();
-                    Parent.Items[Index] = this.Item;
+                    this.Item.Quantity = this.Item.Quantity - 1;
                 }
                 else
                 {
-                    this.Quantity -= 1;
+                    this.Item = null;
                 }
             }
         }
