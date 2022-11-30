@@ -3,17 +3,33 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using MineWeb.Model;
 using MineWeb.Services;
+using static System.Net.WebRequestMethods;
 
 namespace MineWeb.Component
 {
     public partial class ItemList
     {
         private List<Item> items;
-        private List<Item> itemsSearch;
 
         private int totalItem;
 
-        private string valueInputSearch;
+        private int currentPage = 1;
+
+        private int pageSize = 6;
+
+        private int nbPage;
+
+        private string valueInputSearch {
+            get
+            {
+                return this.valueInputSearch;
+            }
+            set
+            {
+                this.valueInputSearch = value;
+                /*await ReadDataAll(currentPage);*/
+            }
+        }
 
         public Item CurrentDragItem { get; set; }
 
@@ -23,38 +39,53 @@ namespace MineWeb.Component
         [Inject]
         public IWebHostEnvironment WebHostEnvironment { get; set; }
 
-        private async Task OnReadData(DataGridReadDataEventArgs<Item> e)
+        protected override async Task OnInitializedAsync()
         {
-            if (e.CancellationToken.IsCancellationRequested)
-            {
-                return;
-            }
+            totalItem = await DataService.Count();
+            nbPage = totalItem / pageSize;
+            await ReadDataAll(1);
+        }
 
-            if (!e.CancellationToken.IsCancellationRequested)
+        public async Task Button(int action)
+        {
+            if(action == 1)
             {
-                items = await DataService.List(e.Page, e.PageSize);
-                totalItem = await DataService.Count();
+                if(currentPage == nbPage)
+                {
+                    await ReadDataAll(currentPage);
+                } else
+                {
+                    await ReadDataAll(currentPage + 1);
+                    currentPage++;
+                }
+            } else
+            {
+                if(currentPage == 1)
+                {
+                    await ReadDataAll(currentPage);
+                } else
+                {
+                    await ReadDataAll(currentPage - 1);
+                    currentPage--;
+                }
+                
+            }
+        }
+
+        private async Task ReadDataAll(int page)
+        {
+            if(valueInputSearch == null)
+            {
+                items = await DataService.List(page, pageSize);
+            } else
+            {
+                items = await DataService.SearchItem(valueInputSearch.ToLower(), totalItem);
             }
         }
 
         private async Task Search(KeyboardEventArgs e)
         {
-            if (e.Key.Equals("Enter"))
-            {
-                itemsSearch = await DataService.List(1, totalItem);
-                Console.WriteLine(itemsSearch);
-                items = await DataService.Search(valueInputSearch.ToLower()));
-                /*foreach (var item in items)
-                {
-                    Console.WriteLine(item.Name);
-                    if (item.Name.Contains(valueInputSearch.ToLower()))
-                    {
-                        Console.WriteLine(item.Name);
-                    }
-                }*/
-                /*items = items.Where(value => items.Any(valueInputSearch => value.Name.Contains(valueInputSearch)));*/
-            }
-            
+            items = await DataService.SearchItem(valueInputSearch.ToLower(), totalItem);
         }
     }
 }

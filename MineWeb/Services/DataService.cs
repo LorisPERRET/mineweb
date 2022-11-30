@@ -26,5 +26,18 @@ namespace MineWeb.Services
         {
             return await _http.GetFromJsonAsync<Item>($"https://localhost:7234/api/Crafting/{id}");
         }
+        public async Task<List<Item>> SearchItem(string valueInput, int totalItem)
+        {
+            List<Item> itemsSearch = await List(1, totalItem);
+            List<Item> items = new List<Item>();
+            foreach (var item in itemsSearch)
+            {
+                if (item.Name.Contains(valueInput))
+                {
+                    items.Add(item);
+                }
+            }
+            return items;
+        }
     }
 }

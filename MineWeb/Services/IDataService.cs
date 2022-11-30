@@ -9,5 +9,6 @@ namespace MineWeb.Services
         Task<List<Item>> List(int currentPage, int pageSize);
 
         Task<Item> GetById(int id);
+        Task<List<Item>> SearchItem(string v, int totalItem);
     }
 }

@@ -16,27 +16,36 @@
             <span class="slider round"></span>
         </label>
     </div>
-
-    @if (items != null)
-    {
-        <table class="table">
+    <table class="table">
+        @if (items != null)
+        {
             <tbody>
-                @foreach (var item in items)
+                @for (int i = 0; i < pageSize; i++)
                 {
                     <tr>
-                        <ItemListComponent CurrentItem="item" />
+                        <ItemListComponent CurrentItem="items[i]" />
                     </tr>
                 }
             </tbody>
-        </table>
-    }
+        }
+    </table>
+    <div class="bottom">
+        <button style="margin-right: 10px" @onclick="() => Button(-1)">
+            &lt;
+        </button>
+            @currentPage
+        <button style="margin-left: 10px" @onclick="() => Button(1)">
+            &gt;
+        </button>
+    </div>
 
-    <DataGrid TItem="Item"
+
+    @*<DataGrid TItem="Item"
               Data="@items"
               ReadData="@OnReadData"
               TotalItems="@totalItem"
               PageSize="6"
               ShowPager
               Responsive>
-    </DataGrid>
+    </DataGrid>*@
 </CascadingValue>
