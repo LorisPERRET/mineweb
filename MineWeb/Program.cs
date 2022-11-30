@@ -23,7 +23,7 @@ builder.Services
    .AddFontAwesomeIcons();
 
 builder.Services.AddBlazoredLocalStorage();
-builder.Services.AddScoped<IDataService, DataLocalService>();
+builder.Services.AddScoped<IDataService, DataService>();
 
 // Add the controller of the app
 builder.Services.AddControllers();
