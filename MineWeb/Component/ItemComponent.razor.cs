@@ -46,7 +46,7 @@ namespace MineWeb.Component
             {
                 this.Item = Parent.CurrentDragItem;
             }
-            else if (this.Item.Item == Parent.CurrentDragItem.Item)
+            else if (this.Item.Item.Name == Parent.CurrentDragItem.Item.Name)
             {
                 if (this.Item.Quantity < this.Item.Item.StackSize)
                 {

@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Components;
+using Microsoft.Extensions.Localization;
 using MineWeb.Model;
+using System.Collections.Generic;
 
 namespace MineWeb.Pages
 {
@@ -14,6 +16,9 @@ namespace MineWeb.Pages
 
         [Inject]
         public NavigationManager NavigationManager { get; set; }
+
+        [Inject]
+        public IStringLocalizer<Inventory> Localizer { get; set; }
 
         protected override async Task OnInitializedAsync()
         {
