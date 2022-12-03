@@ -1,6 +1,5 @@
-﻿using Blazorise.DataGrid;
+﻿using Blazorise.Extensions;
 using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Web;
 using MineWeb.Model;
 using MineWeb.Services;
 
@@ -12,7 +11,25 @@ namespace MineWeb.Component
 
         private int totalItem;
 
+        private int currentPage = 1;
+
+        private int pageSize = 6;
+
+        private int nbPage;
+
         private string valueInputSearch;
+        public string ValueIntputSearch
+        {
+            get
+            {
+                return valueInputSearch;
+            }
+            set
+            {
+                valueInputSearch = value;
+                this.InvokeAsync(async () => await ReadDataAll(currentPage));
+            }
+        }
 
         public Item CurrentDragItem { get; set; }
 
@@ -22,28 +39,54 @@ namespace MineWeb.Component
         [Inject]
         public IWebHostEnvironment WebHostEnvironment { get; set; }
 
-        private async Task OnReadData(DataGridReadDataEventArgs<Item> e)
+        protected override async Task OnInitializedAsync()
         {
-            if (e.CancellationToken.IsCancellationRequested)
-            {
-                return;
-            }
+            this.ValueIntputSearch = string.Empty;
+            totalItem = await DataService.Count();
+            nbPage = totalItem / pageSize;
+            await ReadDataAll(1);
+        }
 
-            if (!e.CancellationToken.IsCancellationRequested)
+        public async Task Button(int action)
+        {
+            if(action == 1)
             {
-                items = await DataService.List(e.Page, e.PageSize);
-                totalItem = await DataService.Count();
+                if(currentPage == nbPage)
+                {
+                    await ReadDataAll(currentPage);
+                } else
+                {
+                    await ReadDataAll(currentPage + 1);
+                    currentPage++;
+                }
+            } else
+            {
+                if(currentPage == 1)
+                {
+                    await ReadDataAll(currentPage);
+                } else
+                {
+                    await ReadDataAll(currentPage - 1);
+                    currentPage--;
+                }
             }
         }
 
-        private async Task Search(KeyboardEventArgs e)
+        private async Task ReadDataAll(int page)
         {
-            if (e.Key.Equals("Enter"))
+            if(this.ValueIntputSearch.IsNullOrEmpty())
             {
-                Console.WriteLine(valueInputSearch);
+                items = await DataService.List(page, pageSize);
+                nbPage = totalItem / pageSize;
             }
-            /*items.Clear();
-            items = await DataService.Search);*/
+            else
+            {
+                var result = await DataService.SearchItem(page, pageSize, valueInputSearch.ToLower(), totalItem);
+                int nbItemSearch = result.Item2;
+                items = result.Item1;
+                nbPage = nbItemSearch / pageSize;
+            }
+            StateHasChanged();
         }
     }
 }
