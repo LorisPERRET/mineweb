@@ -26,18 +26,27 @@ namespace MineWeb.Services
         {
             return await _http.GetFromJsonAsync<Item>($"https://localhost:7234/api/Crafting/{id}");
         }
-        public async Task<List<Item>> SearchItem(string valueInput, int totalItem)
+
+        public async Task<(List<Item>, int)> SearchItem(int currentPage, int pageSize, string valueInput, int totalItem)
         {
             List<Item> itemsSearch = await List(1, totalItem);
+            List<Item> itemsTmp = new List<Item>();
             List<Item> items = new List<Item>();
+            int nbMin = (currentPage - 1) * pageSize;
+            int nbMax = nbMin + pageSize;
+
             foreach (var item in itemsSearch)
             {
-                if (item.Name.Contains(valueInput))
+                if (item.DisplayName.Contains(valueInput) || item.Name.Contains(valueInput))
                 {
-                    items.Add(item);
+                    itemsTmp.Add(item);
                 }
             }
-            return items;
+            for(int i = nbMin; i < nbMax; i++)
+            {
+                items.Add(itemsTmp[i]);
+            }
+            return (items: items, nbSearch: itemsTmp.Count);
         }
     }
 }

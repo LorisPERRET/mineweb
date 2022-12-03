@@ -1,9 +1,7 @@
-﻿using Blazorise.DataGrid;
+﻿using Blazorise.Extensions;
 using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Web;
 using MineWeb.Model;
 using MineWeb.Services;
-using static System.Net.WebRequestMethods;
 
 namespace MineWeb.Component
 {
@@ -19,15 +17,17 @@ namespace MineWeb.Component
 
         private int nbPage;
 
-        private string valueInputSearch {
+        private string valueInputSearch;
+        public string ValueIntputSearch
+        {
             get
             {
-                return this.valueInputSearch;
+                return valueInputSearch;
             }
             set
             {
-                this.valueInputSearch = value;
-                /*await ReadDataAll(currentPage);*/
+                valueInputSearch = value;
+                this.InvokeAsync(async () => await ReadDataAll(currentPage));
             }
         }
 
@@ -41,6 +41,7 @@ namespace MineWeb.Component
 
         protected override async Task OnInitializedAsync()
         {
+            this.ValueIntputSearch = string.Empty;
             totalItem = await DataService.Count();
             nbPage = totalItem / pageSize;
             await ReadDataAll(1);
@@ -68,24 +69,24 @@ namespace MineWeb.Component
                     await ReadDataAll(currentPage - 1);
                     currentPage--;
                 }
-                
             }
         }
 
         private async Task ReadDataAll(int page)
         {
-            if(valueInputSearch == null)
+            if(this.ValueIntputSearch.IsNullOrEmpty())
             {
                 items = await DataService.List(page, pageSize);
-            } else
-            {
-                items = await DataService.SearchItem(valueInputSearch.ToLower(), totalItem);
+                nbPage = totalItem / pageSize;
             }
-        }
-
-        private async Task Search(KeyboardEventArgs e)
-        {
-            items = await DataService.SearchItem(valueInputSearch.ToLower(), totalItem);
+            else
+            {
+                var result = await DataService.SearchItem(page, pageSize, valueInputSearch.ToLower(), totalItem);
+                int nbItemSearch = result.Item2;
+                items = result.Item1;
+                nbPage = nbItemSearch / pageSize;
+            }
+            StateHasChanged();
         }
     }
 }
