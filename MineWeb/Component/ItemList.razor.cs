@@ -47,6 +47,9 @@ namespace MineWeb.Component
             await ReadDataAll(1);
         }
 
+        [Inject]
+        public IStringLocalizer<ItemList> Localizer { get; set; }
+
         public async Task Button(int action)
         {
             if(action == 1)
