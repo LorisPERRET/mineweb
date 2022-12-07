@@ -3,3 +3,9 @@
     flex-direction:row;
     flex-wrap:wrap;
 }
+
+.actions {
+    border: 1px solid black;
+    height: 250px;
+    overflow: scroll;
+}

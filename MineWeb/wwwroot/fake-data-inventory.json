@@ -20,6 +20,16 @@
     "quantity": 3
   },
   {
+    "position": 8,
+    "item": {
+      "id": 1,
+      "displayname": "Xylar",
+      "name": "xylar",
+      "stacksize": 30
+    },
+    "quantity": 29
+  },
+  {
     "position": 21,
     "item": {
       "id": 15,
