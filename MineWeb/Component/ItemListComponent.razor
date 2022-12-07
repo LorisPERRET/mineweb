@@ -1,13 +1,13 @@
-﻿<div class="all"
-     ondragover="event.preventDefault();"
-     draggable="true"
-     @ondragstart="@OnDragStart"
-     @ondrop="@OnDrop"
-     @ondragenter="@OnDragEnter"
-     @ondragleave="@OnDragLeave">
+﻿@if (CurrentItem != null)
+{
+    <div class="all"
+        ondragover="event.preventDefault();"
+        draggable="true"
+        @ondragstart="@OnDragStart"
+        @ondrop="@OnDrop"
+        @ondragenter="@OnDragEnter"
+        @ondragleave="@OnDragLeave">
 
-    @if (CurrentItem != null)
-    {
         <div class="id">
             <p>@CurrentItem.Id</p>
         </div>
@@ -24,5 +24,7 @@
         <div class="name">
             <p>@CurrentItem.DisplayName</p>
         </div>
-    }
-</div>
+    </div>
+} else {
+    <div class="all"> </div>
+}
