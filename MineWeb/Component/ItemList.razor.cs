@@ -30,6 +30,14 @@ namespace MineWeb.Component
             }
         }
 
+        protected override async Task OnInitializedAsync()
+        {
+            this.ValueIntputSearch = string.Empty;
+            totalItem = await DataService.Count();
+            nbPage = totalItem / pageSize;
+            await ReadDataAll(1, isSorted);
+        }
+
         private int pageSize = 6;
         private int pageItem = 6;
 
@@ -57,18 +65,6 @@ namespace MineWeb.Component
 
         [Inject]
         public IWebHostEnvironment WebHostEnvironment { get; set; }
-
-        [Inject]
-        public IStringLocalizer<ItemList> Localizer { get; set; }
-
-        private async Task OnReadData(DataGridReadDataEventArgs<Item> e)
-        {
-            this.ValueIntputSearch = string.Empty;
-            this.IsSorted = false;
-            totalItem = await DataService.Count();
-            nbPage = totalItem / pageSize;
-            await ReadDataAll(1, isSorted);
-        }
 
         [Inject]
         public IStringLocalizer<ItemList> Localizer { get; set; }
