@@ -17,9 +17,28 @@ namespace MineWeb.Services
             return await _http.GetFromJsonAsync<int>("https://localhost:7234/api/Crafting/count");
         }
 
-        public async Task<List<Item>> List(int currentPage, int pageSize)
+        public async Task<List<Item>> List(int currentPage, int pageSize, bool sorted, int totalItem)
         {
-            return await _http.GetFromJsonAsync<List<Item>>($"https://localhost:7234/api/Crafting/?currentPage={currentPage}&pageSize={pageSize}");
+            List<Item> itemsTmp = new List<Item>();
+            List<Item> items = new List<Item>();
+            int nbMin = (currentPage - 1) * pageSize;
+            int nbMax = nbMin + pageSize;
+            if (sorted)
+            {
+                itemsTmp = await _http.GetFromJsonAsync<List<Item>>($"https://localhost:7234/api/Crafting/?currentPage={1}&pageSize={totalItem}");
+                itemsTmp = itemsTmp.OrderBy(o => o.DisplayName).ToList();
+                for (int i = nbMin; i < nbMax; i++)
+                {
+                    items.Add(itemsTmp[i]);
+                }
+            }
+            else
+            {
+                items = await _http.GetFromJsonAsync<List<Item>>($"https://localhost:7234/api/Crafting/?currentPage={currentPage}&pageSize={pageSize}");
+            }
+
+
+            return items;
         }
 
         public async Task<Item> GetById(int id)
@@ -27,9 +46,9 @@ namespace MineWeb.Services
             return await _http.GetFromJsonAsync<Item>($"https://localhost:7234/api/Crafting/{id}");
         }
 
-        public async Task<(List<Item>, int)> SearchItem(int currentPage, int pageSize, string valueInput, int totalItem)
+        public async Task<(List<Item>, int)> SearchItem(int currentPage, int pageSize, bool sorted, string valueInput, int totalItem)
         {
-            List<Item> itemsSearch = await List(1, totalItem);
+            List<Item> itemsSearch = await List(1, totalItem, sorted, totalItem);
             List<Item> itemsTmp = new List<Item>();
             List<Item> items = new List<Item>();
             int nbMin = (currentPage - 1) * pageSize;
@@ -42,9 +61,16 @@ namespace MineWeb.Services
                     itemsTmp.Add(item);
                 }
             }
-            for(int i = nbMin; i < nbMax; i++)
+            for (int i = nbMin; i < nbMax; i++)
             {
-                items.Add(itemsTmp[i]);
+                if (itemsTmp.Count > i)
+                {
+                    items.Add(itemsTmp[i]);
+                }
+            }
+            if (sorted)
+            {
+                items = items.OrderBy(o => o.DisplayName).ToList();
             }
             return (items: items, nbSearch: itemsTmp.Count);
         }
