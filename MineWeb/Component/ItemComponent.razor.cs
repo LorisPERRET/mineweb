@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Web;
+using Microsoft.Extensions.FileSystemGlobbing.Internal.PathSegments;
 using MineWeb.Model;
 using System.Collections.Generic;
 
@@ -11,13 +13,10 @@ namespace MineWeb.Component
         public int Index { get; set; }
 
         [Parameter]
-        public Item Item { get; set; }
+        public ItemForInventory Item { get; set; }
 
         [Parameter]
         public bool NoDrop { get; set; }
-
-        [Parameter]
-        public int  Quantity { get; set; }
 
         [CascadingParameter]
         public MyInventory Parent { get; set; }
@@ -28,6 +27,10 @@ namespace MineWeb.Component
             {
                 return;
             }
+            if (Parent.CurrentDragItem != null)
+            {
+                //Parent.Actions.Add(new InventoryAction { Action = "Drag Enter", Item = Parent.CurrentDragItem.Item, Index = Parent.CurrentDragItemIndex });
+            }
         }
 
         internal void OnDragLeave()
@@ -37,7 +40,10 @@ namespace MineWeb.Component
                 return;
             }
 
-            Parent.Items[Index] = new Item();
+            if (Parent.CurrentDragItem != null) 
+            {
+                //Parent.Actions.Add(new InventoryAction { Action = "Drag Leave", Item = Parent.CurrentDragItem.Item, Index = Parent.CurrentDragItemIndex });
+            }
         }
 
         internal void OnDrop()
@@ -46,36 +52,52 @@ namespace MineWeb.Component
             {
                 return;
             }
-
-            if (this.Quantity == 0)
+            if (Parent.CurrentDragItem != null) 
             {
-                Item = Parent.CurrentDragItem;
-                Parent.Items[Index] = Parent.CurrentDragItem;
-            }
-            else if (this.Item == Parent.CurrentDragItem)
-            {
-                if (this.Quantity < this.Item.StackSize)
+                if (this.Item == null)
                 {
-                    this.Quantity += 1;
+                    this.Item = Parent.CurrentDragItem;
+                    Parent.Items[this.Index] = this.Item;
                 }
+                else if (this.Item.Item.Name == Parent.CurrentDragItem.Item.Name)
+                {
+                    int totalQuantity = this.Item.Quantity + Parent.CurrentDragItem.Quantity;
+                    if (totalQuantity < this.Item.Item.StackSize)
+                    {
+                        this.Item.Quantity = totalQuantity;
+                        Parent.Items[this.Index] = this.Item;
+                    }
+                    else // cas où les quantités sont plus importantes
+                    {
+                        this.Item.Quantity = this.Item.Item.StackSize;
+                        Parent.ActualizeQuantity(totalQuantity - this.Item.Item.StackSize);
+                    }
+                }
+                else
+                {
+                    Parent.UndoDrag();
+                }
+                Parent.CurrentDragItem = null;
+                Parent.Actions.Add(new InventoryAction { Action = "Drag Drop", Item = this.Item.Item, Index = this.Index });
             }
         }
 
         private void OnDragStart()
         {
-            if (this.Quantity > 0)
+
+            if (this.Item != null)
             {
+                Parent.Actions.Add(new InventoryAction { Action = "Drag Start", Item = this.Item.Item, Index = this.Index });
                 Parent.CurrentDragItem = this.Item;
-                if (this.Quantity == 1)
-                {
-                    this.Item = new Item();
-                    Parent.Items[Index] = this.Item;
-                }
-                else
-                {
-                    this.Quantity -= 1;
-                }
+                Parent.CurrentDragItemIndex = this.Index;
+                this.Item = null;
+                Parent.Items[Index] = null;
             }
+        }
+
+        private void OnClick(MouseEventArgs eventArgs)
+        {
+            Console.WriteLine(eventArgs);
         }
 
     }

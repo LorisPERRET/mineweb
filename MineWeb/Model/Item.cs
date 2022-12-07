@@ -6,5 +6,6 @@
         public string DisplayName { get; set; }
         public string Name { get; set; }
         public int StackSize { get; set; }
+        public string ImageBase64 { get; set; }
     }
 }

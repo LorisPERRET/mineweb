@@ -1,14 +1,42 @@
 [
   {
-    "id": 1,
-    "displayname": "Xylar",
-    "name": "xylar",
-    "stacksize": 30
+    "position": 0,
+    "item": {
+      "id": 1,
+      "displayname": "Xylar",
+      "name": "xylar",
+      "stacksize": 30
+    },
+    "quantity": 3
   },
   {
-    "id": 15,
-    "displayname": "Farmage",
-    "name": "farmage",
-    "stacksize": 9
+    "position": 2,
+    "item": {
+      "id": 1,
+      "displayname": "Xylar",
+      "name": "xylar",
+      "stacksize": 30
+    },
+    "quantity": 3
+  },
+  {
+    "position": 8,
+    "item": {
+      "id": 1,
+      "displayname": "Xylar",
+      "name": "xylar",
+      "stacksize": 30
+    },
+    "quantity": 29
+  },
+  {
+    "position": 21,
+    "item": {
+      "id": 15,
+      "displayname": "Farmage",
+      "name": "farmage",
+      "stacksize": 9
+    },
+    "quantity": 7
   }
 ]
