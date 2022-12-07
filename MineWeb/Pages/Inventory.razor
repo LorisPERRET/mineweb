@@ -1,11 +1,11 @@
 ﻿@page "/inventory"
 @using MineWeb.Component
 
-<h3>Inventory</h3>
+<h3>@Localizer["Title"]</h3>
 
 <div class="all">
     <div class="inventory">
-        <MyInventory Items="Items" />
+        <MyInventory Items=ItemsInventory />
     </div>
     <div class="list">
         <ItemList />

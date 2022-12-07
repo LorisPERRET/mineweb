@@ -4,10 +4,14 @@
      @ondragstart="@OnDragStart"
      @ondrop="@OnDrop"
      @ondragenter="@OnDragEnter"
-     @ondragleave="@OnDragLeave">
+     @ondragleave="@OnDragLeave"
+     @onclick="@OnClick">
 
-    @if (CurrentItem != null)
+    @if (Item != null)
     {
-        @CurrentItem.DisplayName
+        @Index
+        @Item.Item.DisplayName
+        @Item.Quantity
     }
+
 </div>

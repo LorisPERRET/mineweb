@@ -1,7 +1,10 @@
 ﻿using Blazorise.Extensions;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Web;
+using Microsoft.Extensions.Localization;
 using MineWeb.Model;
 using MineWeb.Services;
+using System.Collections.Generic;
 
 namespace MineWeb.Component
 {
@@ -39,7 +42,10 @@ namespace MineWeb.Component
         [Inject]
         public IWebHostEnvironment WebHostEnvironment { get; set; }
 
-        protected override async Task OnInitializedAsync()
+        [Inject]
+        public IStringLocalizer<ItemList> Localizer { get; set; }
+
+        private async Task OnReadData(DataGridReadDataEventArgs<Item> e)
         {
             this.ValueIntputSearch = string.Empty;
             totalItem = await DataService.Count();

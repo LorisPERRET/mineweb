@@ -8,14 +8,29 @@
         <Item Index="4" />
         <Item Index="5" />
     </div>*@
+    <div class="container">
+        <div class="css-MyInventory">
 
-    <div class="css-MyInventory">
+            @for (int i = 0; i < 27; i++)
+            {
+                @if (Items.ContainsKey(i))
+                {
+                    <ItemComponent Index=i Item=Items[i] />
+                }
+                else 
+                {
+                    <ItemComposant Index=i Item=null />
+                }
+            }
+        </div>
 
-        @for (int i = 0; i < 27; i++)
-        {
-            <ItemComponent Index=i />
-        }
+        <div class="col-12">
+            <div>Actions</div>
+            <div class="actions" id="actions">
 
+
+            </div>
+        </div>
     </div>
 
 </CascadingValue>
