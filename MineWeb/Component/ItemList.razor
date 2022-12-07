@@ -12,7 +12,7 @@
         @Localizer["Order"] :
 
         <label class="switch">
-            <input type="checkbox">
+            <input type="checkbox" @onchange="@((e) => { this.IsSorted = (bool)e.Value; })">
             <span class="slider round"></span>
         </label>
     </div>
@@ -20,10 +20,10 @@
         @if (items != null)
         {
             <tbody>
-                @for (int i = 0; i < pageSize; i++)
+                @for (int i = 0; i < pageItem; i++)
                 {
                     <tr>
-                        <ItemListComponent CurrentItem="items[i]" />
+                        <ItemListComponent CurrentItem="items[i]"/>
                     </tr>
                 }
             </tbody>

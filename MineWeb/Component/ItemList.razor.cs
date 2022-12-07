@@ -16,7 +16,22 @@ namespace MineWeb.Component
 
         private int currentPage = 1;
 
+        private bool isSorted;
+        public bool IsSorted
+        {
+            get
+            {
+                return isSorted;
+            }
+            set
+            {
+                isSorted = value;
+                this.InvokeAsync(async () => await ReadDataAll(currentPage, isSorted));
+            }
+        }
+
         private int pageSize = 6;
+        private int pageItem = 6;
 
         private int nbPage;
 
@@ -30,7 +45,8 @@ namespace MineWeb.Component
             set
             {
                 valueInputSearch = value;
-                this.InvokeAsync(async () => await ReadDataAll(currentPage));
+                currentPage = 1;
+                this.InvokeAsync(async () => await ReadDataAll(currentPage, isSorted));
             }
         }
 
@@ -48,10 +64,14 @@ namespace MineWeb.Component
         private async Task OnReadData(DataGridReadDataEventArgs<Item> e)
         {
             this.ValueIntputSearch = string.Empty;
+            this.IsSorted = false;
             totalItem = await DataService.Count();
             nbPage = totalItem / pageSize;
-            await ReadDataAll(1);
+            await ReadDataAll(1, isSorted);
         }
+
+        [Inject]
+        public IStringLocalizer<ItemList> Localizer { get; set; }
 
         public async Task Button(int action)
         {
@@ -59,36 +79,42 @@ namespace MineWeb.Component
             {
                 if(currentPage == nbPage)
                 {
-                    await ReadDataAll(currentPage);
+                    await ReadDataAll(currentPage, isSorted);
                 } else
                 {
-                    await ReadDataAll(currentPage + 1);
+                    await ReadDataAll(currentPage + 1, isSorted);
                     currentPage++;
                 }
             } else
             {
                 if(currentPage == 1)
                 {
-                    await ReadDataAll(currentPage);
+                    await ReadDataAll(currentPage, isSorted);
                 } else
                 {
-                    await ReadDataAll(currentPage - 1);
+                    await ReadDataAll(currentPage - 1, isSorted);
                     currentPage--;
                 }
             }
         }
 
-        private async Task ReadDataAll(int page)
+        private async Task ReadDataAll(int page, bool sorted)
         {
             if(this.ValueIntputSearch.IsNullOrEmpty())
             {
-                items = await DataService.List(page, pageSize);
+                items = await DataService.List(page, pageSize, sorted, totalItem);
                 nbPage = totalItem / pageSize;
             }
             else
             {
-                var result = await DataService.SearchItem(page, pageSize, valueInputSearch.ToLower(), totalItem);
+                var result = await DataService.SearchItem(page, pageSize, sorted, valueInputSearch.ToLower(), totalItem);
                 int nbItemSearch = result.Item2;
+                pageItem = 6;
+                if (nbItemSearch < 6)
+                {
+                    pageItem = nbItemSearch;
+                    nbItemSearch = 6;
+                }
                 items = result.Item1;
                 nbPage = nbItemSearch / pageSize;
             }
