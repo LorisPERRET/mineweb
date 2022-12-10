@@ -20,5 +20,10 @@ namespace Minecraft.Crafting.Api.Models
         /// Gets or sets the position.
         /// </summary>
         public int Position { get; set; }
+
+        /// <summary>
+        /// Gets or sets the number of items.
+        /// </summary>
+        public int NumberItem { get; set; }
     }
 }
