@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.Extensions.Localization;
 using MineWeb.Model;
+using MineWeb.Pages;
 using MineWeb.Services;
 using System.Collections.Generic;
 
@@ -39,6 +40,7 @@ namespace MineWeb.Component
         }
 
         private int pageSize = 6;
+
         private int pageItem = 6;
 
         private int nbPage;
@@ -68,6 +70,9 @@ namespace MineWeb.Component
 
         [Inject]
         public IStringLocalizer<ItemList> Localizer { get; set; }
+
+        [CascadingParameter]
+        public Inventory Parent { get; set; }
 
         public async Task Button(int action)
         {

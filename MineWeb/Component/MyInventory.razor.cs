@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
+using MineWeb.Pages;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 
@@ -14,6 +15,9 @@ namespace MineWeb.Component
 
         public int CurrentDragItemIndex { get; set; }
         public ObservableCollection<MineWeb.Model.InventoryAction> Actions { get; set; }
+
+        [CascadingParameter]
+        public Inventory Parent { get; set; }
 
         public MyInventory()
         {

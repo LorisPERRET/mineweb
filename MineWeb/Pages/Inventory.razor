@@ -1,13 +1,16 @@
 ﻿@page "/inventory"
 @using MineWeb.Component
 
-<h3>@Localizer["Title"]</h3>
+<CascadingValue Value="@this">
+    <h3>@Localizer["Title"]</h3>
 
-<div class="all">
-    <div class="inventory">
-        <MyInventory Items=ItemsInventory />
+    <div class="all">
+        <div class="inventory">
+            <MyInventory Items=ItemsInventory />
+        </div>
+        <div class="list">
+            <ItemList />
+        </div>
     </div>
-    <div class="list">
-        <ItemList />
-    </div>
-</div>
+
+</CascadingValue>
