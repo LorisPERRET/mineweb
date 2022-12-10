@@ -30,11 +30,11 @@
         }
     </table>
     <div class="bottom">
-        <button style="margin-right: 10px" @onclick="() => Button(-1)">
+        <button class="right" @onclick="() => Button(-1)">
             &lt;
         </button>
-            @currentPage
-        <button style="margin-left: 10px" @onclick="() => Button(1)">
+        <p class="text-center m-0">@currentPage</p>
+        <button class="left" @onclick="() => Button(1)">
             &gt;
         </button>
     </div>
