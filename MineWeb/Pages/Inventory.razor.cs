@@ -20,6 +20,8 @@ namespace MineWeb.Pages
         [Inject]
         public IStringLocalizer<Inventory> Localizer { get; set; }
 
+        public Item CurrentDragItem { get; set; }
+
         protected override async Task OnInitializedAsync()
         {
             items = await Http.GetFromJsonAsync<Item[]>($"{NavigationManager.BaseUri}fake-data.json");

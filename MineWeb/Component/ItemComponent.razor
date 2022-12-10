@@ -1,4 +1,4 @@
-﻿<div class="item"
+﻿<div class="item d-flex flex-column align-items-center"
      ondragover="event.preventDefault();"
      draggable="true"
      @ondragstart="@OnDragStart"
@@ -9,9 +9,21 @@
 
     @if (Item != null)
     {
-        @Index
-        @Item.Item.DisplayName
-        @Item.Quantity
+        <div class="image">
+            @if (!string.IsNullOrWhiteSpace(Item.Item.ImageBase64))
+            {
+                <img src="data:image/png;base64, @(Item.Item.ImageBase64)" class="img-thumbnail" title="@Item.Item.DisplayName" alt="@Item.Item.DisplayName" style="height: 32px;" />
+            }
+            else
+            {
+                <img src="images/default.png" class="img-thumbnail" title="@Item.Item.DisplayName" alt="@Item.Item.DisplayName" style="height: 32px;" />
+            }
+        </div>
+        <div class="name d-flex flex-row justify-content-center">
+            <p>@Item.Item.DisplayName</p>
+        </div>
+        <div class="stack d-flex flex-row-reverse w-100">
+            <p>@Item.Quantity / @Item.Item.StackSize</p>
+        </div>
     }
-
 </div>

@@ -6,9 +6,6 @@ namespace MineWeb.Component
     public partial class ItemListComponent
     {
         [Parameter]
-        public int Index { get; set; }
-
-        [Parameter]
         public Item CurrentItem { get; set; }
 
         [Inject]
@@ -46,7 +43,7 @@ namespace MineWeb.Component
 
         private void OnDragStart()
         {
-            Parent.CurrentDragItem = this.CurrentItem;
+            Parent.Parent.CurrentDragItem = this.CurrentItem;
         }
     }
 }

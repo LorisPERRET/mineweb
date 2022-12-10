@@ -27,10 +27,16 @@ namespace MineWeb.Component
             {
                 return;
             }
+            if (Parent.Parent.CurrentDragItem != null)
+            {
+                Parent.CurrentDragItem = new ItemForInventory(Parent.Parent.CurrentDragItem);
+                Parent.Parent.CurrentDragItem = null;
+            }
             if (Parent.CurrentDragItem != null)
             {
                 //Parent.Actions.Add(new InventoryAction { Action = "Drag Enter", Item = Parent.CurrentDragItem.Item, Index = Parent.CurrentDragItemIndex });
             }
+            
         }
 
         internal void OnDragLeave()

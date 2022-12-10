@@ -1,6 +1,17 @@
 ﻿.item {
-    width: 64px;
-    height: 64px;
+    width: 70px;
+    height: 70px;
     border: 1px solid;
     overflow: hidden;
+    padding: 3px;
+}
+
+.name p{
+    font-size: 12px;
+    margin: 0 5px;
+}
+
+.stack p{
+    font-size: 10px;
+    margin: 0;
 }
