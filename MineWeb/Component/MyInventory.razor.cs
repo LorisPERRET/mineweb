@@ -45,5 +45,7 @@ namespace MineWeb.Component
         {
             JavaScriptRuntime.InvokeVoidAsync("MyInventory.AddActions", e.NewItems);
         }
+
+        public void saveData() { }
     }
 }
