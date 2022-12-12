@@ -1,4 +1,5 @@
-﻿using MineWeb.Model;
+﻿using Microsoft.AspNetCore.Hosting;
+using MineWeb.Model;
 
 namespace MineWeb.Services
 {
@@ -37,7 +38,6 @@ namespace MineWeb.Services
                 items = await _http.GetFromJsonAsync<List<Item>>($"https://localhost:7234/api/Crafting/?currentPage={currentPage}&pageSize={pageSize}");
             }
 
-
             return items;
         }
 
@@ -73,6 +73,28 @@ namespace MineWeb.Services
                 items = items.OrderBy(o => o.DisplayName).ToList();
             }
             return (items: items, nbSearch: itemsTmp.Count);
+        }
+
+        public async Task Add(ItemModel model)
+        {
+            // Get the item
+            var item = ItemFactory.Create(model);
+
+            // Save the data
+            await _http.PostAsJsonAsync("https://localhost:7234/api/Crafting/", item);
+        }
+
+        public async Task Update(int id, ItemModel model)
+        {
+            // Get the item
+            var item = ItemFactory.Create(model);
+
+            await _http.PutAsJsonAsync($"https://localhost:7234/api/Crafting/{id}", item);
+        }
+
+        public async Task Delete(int id)
+        {
+            await _http.DeleteAsync($"https://localhost:7234/api/Crafting/{id}");
         }
     }
 }

@@ -11,5 +11,11 @@ namespace MineWeb.Services
         Task<Item> GetById(int id);
 
         Task<(List<Item>, int)> SearchItem(int page, int pageSize, bool sorted, string v, int totalItem);
+
+        Task Add(ItemModel item);
+
+        Task Update(int id, ItemModel model);
+
+        Task Delete(int id);
     }
 }

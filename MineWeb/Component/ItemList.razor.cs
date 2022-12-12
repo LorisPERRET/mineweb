@@ -55,7 +55,6 @@ namespace MineWeb.Component
             set
             {
                 valueInputSearch = value;
-                Console.WriteLine(valueInputSearch);
                 currentPage = 1;
                 this.InvokeAsync(async () => await ReadDataAll(currentPage, isSorted));
             }
