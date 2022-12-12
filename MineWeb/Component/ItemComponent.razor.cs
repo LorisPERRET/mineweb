@@ -30,6 +30,7 @@ namespace MineWeb.Component
             if (Parent.Parent.CurrentDragItem != null)
             {
                 Parent.CurrentDragItem = new ItemForInventory(Parent.Parent.CurrentDragItem);
+                Parent.CurrentDragItemIndex = -1;
                 Parent.Parent.CurrentDragItem = null;
             }
             if (Parent.CurrentDragItem != null)
