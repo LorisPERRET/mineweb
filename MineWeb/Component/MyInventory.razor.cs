@@ -48,6 +48,28 @@ namespace MineWeb.Component
             StateHasChanged();
         }
 
+        public bool FindAPlaceFor(ItemForInventory itemToPlace, int initialIndex)
+        {
+            for (int i = 0; i < this.Items.Count; i++)
+            {
+                if (this.Items[i] == null)
+                {
+                    this.Items[i] = itemToPlace;
+                    StateHasChanged();
+                    return true;
+                }
+                else if (this.Items[i].Item.Id == itemToPlace.Item.Id 
+                        && this.Items[i].Quantity + itemToPlace.Quantity <= itemToPlace.Item.StackSize
+                        && i != initialIndex)
+                {
+                    this.Items[i].Quantity = this.Items[i].Quantity + itemToPlace.Quantity;
+                    StateHasChanged();
+                    return true;
+                }
+            }
+            return false;
+        }
+
 
         [Inject]
         internal IJSRuntime JavaScriptRuntime { get; set; }

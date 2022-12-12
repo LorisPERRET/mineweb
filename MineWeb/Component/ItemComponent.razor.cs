@@ -90,9 +90,8 @@ namespace MineWeb.Component
             }
         }
 
-        private void OnDragStart()
+        private void OnDragStart(MouseEventArgs args)
         {
-
             if (this.Item != null)
             {
                 Parent.Actions.Add(new InventoryAction { Action = "Drag Start", Item = this.Item.Item, Index = this.Index });
@@ -106,8 +105,19 @@ namespace MineWeb.Component
 
         private void OnClick(MouseEventArgs eventArgs)
         {
-            Console.WriteLine(eventArgs);
+            Console.WriteLine("Left click");
         }
 
+        private void OnRightClick(MouseEventArgs args)
+        {
+            if ( this.Item != null)
+            {
+                if (Parent.FindAPlaceFor(new ItemForInventory(this.Item.Item, this.Item.Quantity / 2), this.Index))
+                {
+                    this.Item.Quantity = this.Item.Quantity - this.Item.Quantity/2;
+                    Parent.saveData();
+                }
+            }
+        }
     }
 }

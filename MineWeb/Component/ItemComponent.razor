@@ -5,7 +5,9 @@
      @ondrop="@OnDrop"
      @ondragenter="@OnDragEnter"
      @ondragleave="@OnDragLeave"
-     @onclick="@OnClick">
+     @onclick="@OnClick"
+     @oncontextmenu="@OnRightClick"
+     @oncontextmenu:preventDefault="true">
 
     @if (Item != null)
     {
