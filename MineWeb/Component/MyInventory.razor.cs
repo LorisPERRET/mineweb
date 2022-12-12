@@ -27,8 +27,11 @@ namespace MineWeb.Component
 
         public void UndoDrag() // Doit modifier le dictionnaire des items et appeler StateHasChanged
         {
-            this.Items[this.CurrentDragItemIndex] = CurrentDragItem;
-            StateHasChanged();
+            if(this.CurrentDragItemIndex != -1)
+            {
+                this.Items[this.CurrentDragItemIndex] = CurrentDragItem;
+                StateHasChanged();
+            }
         } 
 
         public void ActualizeQuantity(int newQuantity)
