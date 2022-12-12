@@ -9,6 +9,7 @@ using Microsoft.Extensions.Options;
 using MineWeb.Data;
 using MineWeb.Services;
 using System.Globalization;
+using Blazored.Modal;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,6 +25,7 @@ builder.Services
 
 builder.Services.AddBlazoredLocalStorage();
 builder.Services.AddScoped<IDataService, DataService>();
+builder.Services.AddBlazoredModal();
 
 // Add the controller of the app
 builder.Services.AddControllers();

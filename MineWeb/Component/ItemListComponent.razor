@@ -24,6 +24,8 @@
         <div class="name">
             <p>@CurrentItem.DisplayName</p>
         </div>
+        <a href="Edit/@(CurrentItem.Id)" class="d-flex flex-row justify-content-center align-items-center btn btn-primary m-2" style="width: 30px; height: 30px"><i class="fa fa-edit"></i></a>
+        <button type="button" class="d-flex flex-row justify-content-center align-items-center btn btn-primary m-2" style="width: 30px; height: 30px" @onclick="() => OnDelete(CurrentItem.Id)"><i class="fa fa-trash"></i></button>
     </div>
 } else {
     <div class="all"> </div>
