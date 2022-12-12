@@ -24,21 +24,23 @@ namespace MineWeb.Pages
 
         protected override async Task OnInitializedAsync()
         {
-            items = await Http.GetFromJsonAsync<Item[]>($"{NavigationManager.BaseUri}fake-data.json");
+            //items = await Http.GetFromJsonAsync<Item[]>($"{NavigationManager.BaseUri}fake-data.json");
 
-            ItemForInventoryArchive[] liste = await Http.GetFromJsonAsync<ItemForInventoryArchive[]>($"{NavigationManager.BaseUri}fake-data-inventory.json");
-            foreach (ItemForInventoryArchive i in liste)
-            {
-                ItemsInventory.Add(i.Position, new ItemForInventory(i.Item, i.Quantity));
-            }
+            Console.WriteLine($"{NavigationManager.BaseUri}fake-data.json");
+
+            ItemForInventoryArchive[] liste = await Http.GetFromJsonAsync<ItemForInventoryArchive[]>($"{NavigationManager.BaseUri}save-data-inventory.json");
+            
             for (int i = 0; i < 27; i++)
             {
-                if (!ItemsInventory.ContainsKey(i))
+                if (liste[i] == null)
                 {
                     ItemsInventory.Add(i, null);
                 }
+                else
+                {
+                    ItemsInventory.Add(i, new ItemForInventory(liste[i].Item, liste[i].Quantity));
+                }
             }
-            Console.WriteLine(ItemsInventory);
         }
     }
 }

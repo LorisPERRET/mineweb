@@ -86,6 +86,7 @@ namespace MineWeb.Component
                 }
                 Parent.CurrentDragItem = null;
                 Parent.Actions.Add(new InventoryAction { Action = "Drag Drop", Item = this.Item.Item, Index = this.Index });
+                Parent.saveData();
             }
         }
 
@@ -99,6 +100,7 @@ namespace MineWeb.Component
                 Parent.CurrentDragItemIndex = this.Index;
                 this.Item = null;
                 Parent.Items[Index] = null;
+                Parent.saveData();
             }
         }
 

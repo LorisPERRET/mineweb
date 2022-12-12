@@ -1,8 +1,11 @@
 ﻿using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.JSInterop;
+using MineWeb.Model;
 using MineWeb.Pages;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
+using System.Text.Json;
 
 namespace MineWeb.Component
 {
@@ -14,7 +17,11 @@ namespace MineWeb.Component
         public MineWeb.Model.ItemForInventory CurrentDragItem { get; set; }
 
         public int CurrentDragItemIndex { get; set; }
+
         public ObservableCollection<MineWeb.Model.InventoryAction> Actions { get; set; }
+
+        [Inject]
+        public IWebHostEnvironment WebHostEnvironment { get; set; }
 
         [CascadingParameter]
         public Inventory Parent { get; set; }
@@ -49,6 +56,20 @@ namespace MineWeb.Component
             JavaScriptRuntime.InvokeVoidAsync("MyInventory.AddActions", e.NewItems);
         }
 
-        public void saveData() { }
+        public void saveData()
+        {
+            ItemForInventoryArchive[] listeASave = new ItemForInventoryArchive[27];
+            for (int i = 0; i < this.Items.Count; i++)
+            {
+                if (Items[i] != null)
+                {
+                    ItemForInventoryArchive item = new ItemForInventoryArchive(i, Items[i].Item, Items[i].Quantity);
+                    listeASave[i] = item;
+                }
+                
+            }
+            var jsonString = JsonSerializer.Serialize(listeASave);
+            File.WriteAllText($"{WebHostEnvironment.WebRootPath}/save-data-inventory.json", jsonString);
+        }
     }
 }
