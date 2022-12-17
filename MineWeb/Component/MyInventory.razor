@@ -2,7 +2,7 @@
     <div class="container">
         <div class="css-MyInventory">
 
-            @for (int i = 0; i < 27; i++)
+            @for (int i = 0; i < Items.Count(); i++)
             {
                 @if (Items.ContainsKey(i))
                 {
@@ -10,7 +10,7 @@
                 }
                 else 
                 {
-                    <ItemComposant Index=i Item=null />
+                    <ItemComponent Index=i Item=null />
                 }
             }
         </div>
