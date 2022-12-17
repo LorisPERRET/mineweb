@@ -38,6 +38,12 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Component.ItemList.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Pages.Add.fr-FR.resx">
+      <Generator></Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Pages.Add.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Resources\Pages.Index.fr-FR.resx">
       <Generator></Generator>
     </EmbeddedResource>
