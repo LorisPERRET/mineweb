@@ -11,6 +11,23 @@ namespace MineWeb.Component
 {
     public partial class ItemList
     {
+        public Item CurrentDragItem { get; set; }
+
+        [Inject]
+        public IDataService DataService { get; set; }
+
+        [Inject]
+        public IWebHostEnvironment WebHostEnvironment { get; set; }
+
+        [Inject]
+        public IStringLocalizer<ItemList> Localizer { get; set; }
+
+        [Inject]
+        public IConfiguration Configuration { get; set; }
+
+        [CascadingParameter]
+        public Inventory Parent { get; set; }
+
         private List<Item> items;
 
         private int totalItem;
@@ -33,15 +50,17 @@ namespace MineWeb.Component
 
         protected override async Task OnInitializedAsync()
         {
+            pageSize = Configuration.GetSection("NombreItemPage").Get<int>();
+            pageItem = pageSize;
             this.ValueIntputSearch = string.Empty;
             totalItem = await DataService.Count();
             nbPage = totalItem / pageSize;
             await ReadDataAll(1, isSorted);
         }
 
-        private int pageSize = 6;
+        private int pageSize;
 
-        private int pageItem = 6;
+        private int pageItem;
 
         private int nbPage;
 
@@ -59,20 +78,6 @@ namespace MineWeb.Component
                 this.InvokeAsync(async () => await ReadDataAll(currentPage, isSorted));
             }
         }
-
-        public Item CurrentDragItem { get; set; }
-
-        [Inject]
-        public IDataService DataService { get; set; }
-
-        [Inject]
-        public IWebHostEnvironment WebHostEnvironment { get; set; }
-
-        [Inject]
-        public IStringLocalizer<ItemList> Localizer { get; set; }
-
-        [CascadingParameter]
-        public Inventory Parent { get; set; }
 
         public async Task Button(int action)
         {
@@ -110,11 +115,11 @@ namespace MineWeb.Component
             {
                 var result = await DataService.SearchItem(page, pageSize, sorted, valueInputSearch.ToLower(), totalItem);
                 int nbItemSearch = result.Item2;
-                pageItem = 6;
-                if (nbItemSearch < 6)
+                pageItem = pageSize;
+                if (nbItemSearch < pageSize)
                 {
                     pageItem = nbItemSearch;
-                    nbItemSearch = 6;
+                    nbItemSearch = pageSize;
                 }
                 items = result.Item1;
                 nbPage = nbItemSearch / pageSize;
