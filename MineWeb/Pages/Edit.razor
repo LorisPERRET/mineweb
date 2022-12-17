@@ -1,6 +1,6 @@
 ﻿@page "/edit/{Id:int}"
 
-<h3>Edit</h3>
+<h3>@Localizer["Title"]</h3>
 
 <EditForm Model="@itemModel" OnValidSubmit="@HandleValidSubmit">
     <DataAnnotationsValidator />
@@ -8,40 +8,40 @@
 
     <p>
         <label for="display-name">
-            Display name:
+            @Localizer["displayName"]:
             <InputText id="display-name" @bind-Value="itemModel.DisplayName" />
         </label>
     </p>
     <p>
         <label for="name">
-            Name:
+            @Localizer["name"]:
             <InputText id="name" @bind-Value="itemModel.Name" />
         </label>
     </p>
     <p>
         <label for="stack-size">
-            Stack size:
+            @Localizer["stackSize"]:
             <InputNumber id="stack-size" @bind-Value="itemModel.StackSize" />
         </label>
     </p>
     <p>
         <label>
-            Current Item image:
+            @Localizer["currentImage"]:
             <img src="data:image/png;base64, @(itemModel.ImageBase64)" class="img-thumbnail" title="@itemModel.DisplayName" alt="@itemModel.DisplayName" style="min-width: 50px; max-width: 150px" />
         </label>
     </p>
     <p>
         <label>
-            Item image:
+            @Localizer["image"]:
             <InputFile OnChange="@LoadImage" accept=".png" />
         </label>
     </p>
     <p>
         <label>
-            Accept Condition:
+            @Localizer["accept"]:
             <InputCheckbox @bind-Value="itemModel.AcceptCondition" />
         </label>
     </p>
 
-    <button type="submit">Submit</button>
+    <button type="submit">@Localizer["submit"]</button>
 </EditForm>

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Components;
 using MineWeb.Services;
 using MineWeb.Model;
+using Microsoft.Extensions.Localization;
 
 namespace MineWeb.Pages
 {
@@ -23,6 +24,9 @@ namespace MineWeb.Pages
 
         [Inject]
         public IWebHostEnvironment WebHostEnvironment { get; set; }
+
+        [Inject]
+        public IStringLocalizer<Edit> Localizer { get; set; }
 
         protected override async Task OnInitializedAsync()
         {
