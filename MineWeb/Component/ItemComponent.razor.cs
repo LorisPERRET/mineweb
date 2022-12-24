@@ -112,10 +112,13 @@ namespace MineWeb.Component
         {
             if ( this.Item != null)
             {
-                if (Parent.FindAPlaceFor(new ItemForInventory(this.Item.Item, this.Item.Quantity / 2), this.Index))
+                if(this.Item.Quantity > 1)
                 {
-                    this.Item.Quantity = this.Item.Quantity - this.Item.Quantity/2;
-                    Parent.saveData();
+                    if (Parent.FindAPlaceFor(new ItemForInventory(this.Item.Item, this.Item.Quantity / 2), this.Index))
+                    {
+                        this.Item.Quantity = this.Item.Quantity - this.Item.Quantity/2;
+                        Parent.saveData();
+                    }
                 }
             }
         }
