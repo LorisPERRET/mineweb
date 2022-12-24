@@ -110,15 +110,12 @@ namespace MineWeb.Component
 
         private void OnRightClick(MouseEventArgs args)
         {
-            if ( this.Item != null)
+            if ( this.Item != null && this.Item.Quantity > 1)
             {
-                if(this.Item.Quantity > 1)
+                if (Parent.FindAPlaceFor(new ItemForInventory(this.Item.Item, this.Item.Quantity / 2), this.Index))
                 {
-                    if (Parent.FindAPlaceFor(new ItemForInventory(this.Item.Item, this.Item.Quantity / 2), this.Index))
-                    {
-                        this.Item.Quantity = this.Item.Quantity - this.Item.Quantity/2;
-                        Parent.saveData();
-                    }
+                    this.Item.Quantity = this.Item.Quantity - this.Item.Quantity/2;
+                    Parent.saveData();
                 }
             }
         }
