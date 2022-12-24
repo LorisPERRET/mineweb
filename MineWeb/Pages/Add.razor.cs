@@ -26,7 +26,7 @@ namespace MineWeb.Pages
         /// </summary>
         private ItemModel itemModel = new();
 
-        private async void HandleValidSubmit()
+        private async Task HandleValidSubmit()
         {
             var totalItem = await DataService.Count();
             // Get the current data

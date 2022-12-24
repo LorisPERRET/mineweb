@@ -43,7 +43,7 @@ namespace MineWeb.Pages
             itemModel = ItemFactory.ToModel(item, fileContent);
         }
 
-        private async void HandleValidSubmit()
+        private async Task HandleValidSubmit()
         {
             await DataService.Update(Id, itemModel);
 
