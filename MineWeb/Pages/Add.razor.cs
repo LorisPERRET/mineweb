@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Components;
 using MineWeb.Model;
 using MineWeb.Services;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Localization;
 
 namespace MineWeb.Pages
 {
@@ -20,6 +21,9 @@ namespace MineWeb.Pages
 
         [Inject]
         public IDataService DataService { get; set; }
+
+        [Inject]
+        public IStringLocalizer<Add> Localizer { get; set; }
 
         /// <summary>
         /// The current item model

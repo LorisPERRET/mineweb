@@ -21,11 +21,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Component.ItemList.resx</DependentUpon>
     </Compile>
-    <Compile Update="Resources\Pages.Edit.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Pages.Edit.resx</DependentUpon>
-    </Compile>
     <Compile Update="Resources\Pages.Index.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -43,9 +38,11 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Component.ItemList.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Pages.Edit.resx">
+    <EmbeddedResource Update="Resources\Pages.Add.fr-FR.resx">
+      <Generator></Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Pages.Add.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Pages.Edit.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="Resources\Pages.Index.fr-FR.resx">
       <Generator></Generator>
